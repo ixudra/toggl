@@ -113,7 +113,7 @@ Create a new instance of the `TogglService` where you would like to use the pack
 ```php
 
     $workspaceId = 123;
-    $apiToken = 'yuor_toggl_api_token';
+    $apiToken = 'your_toggl_api_token';
     $togglService = new \Ixudra\Toggl\TogglService( $workspaceId, $apiToken );
 
 ```
@@ -156,7 +156,7 @@ of the requests. Additionally, the package also provides several utility methods
 ```php
 
     $workspaceId = 123;
-    $apiToken = 'yuor_toggl_api_token';
+    $apiToken = 'your_toggl_api_token';
     $togglService = new \Ixudra\Toggl\TogglService( $workspaceId, $apiToken );
 
     // Return an overview of what users in the workspace are doing and have been doing
