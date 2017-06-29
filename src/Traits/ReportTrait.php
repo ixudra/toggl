@@ -32,7 +32,7 @@ trait ReportTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function project($id, array $data = array())
+    public function projectReport($id, array $data = array())
     {
         $data[ 'project_id' ] = $id;
 

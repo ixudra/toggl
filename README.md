@@ -29,7 +29,7 @@ Add the service provider to your `config/app.php` file
 
 ```php
 
-    providers     => array(
+    'providers'         => array(
 
         //...
         Ixudra\Toggl\TogglServiceProvider::class,
@@ -42,7 +42,7 @@ Add the facade to your `config/app.php` file:
 
 ```php
 
-    'facades'       => array(
+    'aliases'           => array(
 
         //...
         'Toggl'         => Ixudra\Toggl\Facades\Toggl::class,
@@ -70,6 +70,8 @@ Add the following lines of code to your `config/services.php` file:
     ],
 
 ```
+
+ > Currently, the package only supports one workspace, which will be sufficient for most users. You can override this behaviour by using the `Config::set('services.toggl.workspace', 456)` method. Support for multiple workspaces will be added in the near future.
 
 
 ### Lumen 5.* integration
@@ -182,6 +184,7 @@ of the requests. Additionally, the package also provides several utility methods
 - Improve usability of existing API methods
 - Add additional convenience method
 - Update and improve documentation
+- Support for multiple workspaces
 
 
 
