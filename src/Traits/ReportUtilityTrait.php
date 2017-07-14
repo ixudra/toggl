@@ -11,7 +11,6 @@ trait ReportUtilityTrait {
             ->startOfWeek()
             ->toDateString();
         $data[ 'until' ] = Carbon::now()
-            ->subWeek()
             ->endOfWeek()
             ->toDateString();
 
@@ -21,6 +20,7 @@ trait ReportUtilityTrait {
     public function summaryLastWeek(array $data = array())
     {
         $data[ 'since' ] = Carbon::now()
+            ->subWeek()
             ->startOfWeek()
             ->toDateString();
         $data[ 'until' ] = Carbon::now()
