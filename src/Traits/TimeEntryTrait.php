@@ -76,14 +76,14 @@ trait TimeEntryTrait {
         return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries/'. $id );
     }
     
-     /**
+    /**
      * Summary report returns the aggregated time entries data
      *
      * @return  stdClass
      */
     public function entry()
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries');
+        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries' );
     }
 
     /**
