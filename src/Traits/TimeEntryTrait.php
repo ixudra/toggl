@@ -83,7 +83,7 @@ trait TimeEntryTrait {
      */
     public function entry()
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries);
+        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries');
     }
 
     /**
