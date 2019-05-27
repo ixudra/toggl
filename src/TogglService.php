@@ -11,12 +11,13 @@ use Ixudra\Toggl\Traits\ReportUtilityTrait;
 use Ixudra\Toggl\Traits\TagTrait;
 use Ixudra\Toggl\Traits\TaskTrait;
 use Ixudra\Toggl\Traits\TimeEntryTrait;
+use Ixudra\Toggl\Traits\WorkspaceTrait;
 use Ixudra\Toggl\Traits\WorkspaceUsersTrait;
 use stdClass;
 
 class TogglService {
 
-    use ReportTrait, ReportUtilityTrait, ClientTrait, TaskTrait, TagTrait, GroupTrait, ProjectTrait, TimeEntryTrait, WorkspaceUsersTrait;
+    use ReportTrait, ReportUtilityTrait, ClientTrait, TaskTrait, TagTrait, GroupTrait, ProjectTrait, TimeEntryTrait, WorkspaceTrait, WorkspaceUsersTrait;
 
 
     /** @var CurlService $curlService */
