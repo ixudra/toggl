@@ -170,13 +170,13 @@ of the requests. Additionally, the package also provides several utility methods
     $response = $togglService->dashboard();
 
     // Create a client
-    $response = $togglService->createClient( array( "name" => "Test company" ) ) );
+    $response = $togglService->createClient( array( "name" => "Test company" ) );
 
     // Get a summary information of this month for all user 
     $response = $togglService->summaryThisMonth();
 
     // Get a summary information of last month for one specific user 
-    $response = $togglService->summaryLastMonth( array( 'user_ids' => '123' ) ) );
+    $response = $togglService->summaryLastMonth( array( 'user_ids' => '123' ) );
 
 ```
 
