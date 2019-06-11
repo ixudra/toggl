@@ -81,4 +81,16 @@ trait ProjectTrait {
         return $this->sendGetMessage( 'https://www.toggl.com/api/v8/projects/'. $id .'/project_users', $data );
     }
 
+    /**
+     * Get project tasks
+     *
+     * @param   integer     $id         ID of the project
+     * @param   array       $data       Data payload that is to be sent with the request
+     * @return  stdClass
+     */
+    public function projectTasks($id, array $data = array())
+    {
+        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/projects/'. $id .'/tasks', $data );
+    }
+
 }
