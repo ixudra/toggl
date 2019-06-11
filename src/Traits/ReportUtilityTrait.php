@@ -83,7 +83,7 @@ trait ReportUtilityTrait {
         return $this->summary( $data );
     }
 
-    public function summaryLastDay(array $data = array())
+    public function summaryYesterday(array $data = array())
     {
         $data[ 'since' ] = Carbon::now()
             ->subDay()
