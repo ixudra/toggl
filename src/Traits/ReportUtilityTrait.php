@@ -5,6 +5,32 @@ use Carbon\Carbon;
 
 trait ReportUtilityTrait {
 
+    public function summaryToday(array $data = array())
+    {
+        $data[ 'since' ] = Carbon::now()
+            ->startOfDay()
+            ->toDateString();
+        $data[ 'until' ] = Carbon::now()
+            ->endOfDay()
+            ->toDateString();
+
+        return $this->summary( $data );
+    }
+
+    public function summaryYesterday(array $data = array())
+    {
+        $data[ 'since' ] = Carbon::now()
+            ->subDay()
+            ->startOfDay()
+            ->toDateString();
+        $data[ 'until' ] = Carbon::now()
+            ->subDay()
+            ->endOfDay()
+            ->toDateString();
+
+        return $this->summary( $data );
+    }
+
     public function summaryThisWeek(array $data = array())
     {
         $data[ 'since' ] = Carbon::now()
@@ -78,32 +104,6 @@ trait ReportUtilityTrait {
         $data[ 'until' ] = Carbon::now()
             ->subYear()
             ->endOfYear()
-            ->toDateString();
-
-        return $this->summary( $data );
-    }
-
-    public function summaryYesterday(array $data = array())
-    {
-        $data[ 'since' ] = Carbon::now()
-            ->subDay()
-            ->startOfDay()
-            ->toDateString();
-        $data[ 'until' ] = Carbon::now()
-            ->subDay()
-            ->endOfDay()
-            ->toDateString();
-
-        return $this->summary( $data );
-    }
-
-    public function summaryToday(array $data = array())
-    {
-        $data[ 'since' ] = Carbon::now()
-            ->startOfDay()
-            ->toDateString();
-        $data[ 'until' ] = Carbon::now()
-            ->endOfDay()
             ->toDateString();
 
         return $this->summary( $data );

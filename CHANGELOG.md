@@ -2,7 +2,13 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
-## 0.7.0 - 2019-05-28
+## 0.8.0 - 2019-06-11
+### Added
+- summaryToday method
+- summaryYesterday method
+- projectTasks method
+
+## 0.7.0 - 2019-06-11
 ### Added
 - workspaces method
 
