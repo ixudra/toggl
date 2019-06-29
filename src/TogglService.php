@@ -17,7 +17,7 @@ use stdClass;
 
 class TogglService {
 
-    use ReportTrait, ReportUtilityTrait, ClientTrait, TaskTrait, TagTrait, GroupTrait, ProjectTrait, TimeEntryTrait, WorkspaceTrait, WorkspaceUsersTrait;
+    use ReportTrait, DetailedReportUtilityTrait, ReportUtilityTrait, ClientTrait, TaskTrait, TagTrait, GroupTrait, ProjectTrait, TimeEntryTrait, WorkspaceTrait, WorkspaceUsersTrait;
 
 
     /** @var CurlService $curlService */
