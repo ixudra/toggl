@@ -1,7 +1,7 @@
 {
     "name": "ixudra/toggl",
     "description": "Custom PHP library to connect with the Toggl API - developed by Ixudra",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "keywords": ["Ixudra", "Laravel", "Toggl", "API"],
     "homepage": "http://ixudra.be",
     "license": "MIT",

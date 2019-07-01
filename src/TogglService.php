@@ -4,6 +4,7 @@
 use Ixudra\Curl\Builder;
 use Ixudra\Curl\CurlService;
 use Ixudra\Toggl\Traits\ClientTrait;
+use Ixudra\Toggl\Traits\DetailedReportUtilityTrait;
 use Ixudra\Toggl\Traits\GroupTrait;
 use Ixudra\Toggl\Traits\ProjectTrait;
 use Ixudra\Toggl\Traits\ReportTrait;
