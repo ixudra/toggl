@@ -27,6 +27,16 @@ trait ReportTrait {
     }
 
     /**
+     * Returns the detailed time entries data
+     * @param   array       $data       Data payload that is to be sent with the request
+     * @return  stdClass
+     */
+    public function detailed(array $data = array())
+    {
+        return $this->sendGetMessage( 'https://www.toggl.com/reports/api/v2/details', $data );
+    }
+
+    /**
      * Returns at-a glance information for a single project
      *
      * @param   array       $data       Data payload that is to be sent with the request
