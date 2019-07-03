@@ -5,6 +5,32 @@ use Carbon\Carbon;
 
 trait DetailedReportUtilityTrait {
 
+    public function detailedToday(array $data = array())
+    {
+        $data[ 'since' ] = Carbon::now()
+            ->startOfDay()
+            ->toDateString();
+        $data[ 'until' ] = Carbon::now()
+            ->endOfDay()
+            ->toDateString();
+
+        return $this->detailed( $data );
+    }
+
+    public function detailedYesterday(array $data = array())
+    {
+        $data[ 'since' ] = Carbon::now()
+            ->subDay()
+            ->startOfDay()
+            ->toDateString();
+        $data[ 'until' ] = Carbon::now()
+            ->subDay()
+            ->endOfDay()
+            ->toDateString();
+
+        return $this->detailed( $data );
+    }
+    
     public function detailedThisWeek(array $data = array())
     {
         $data[ 'since' ] = Carbon::now()
