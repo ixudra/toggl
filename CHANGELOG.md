@@ -2,10 +2,13 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 0.10.0 - 2019-07-03
+### Added
+- detailedToday and detailedYesterday methods
+
 ## 0.9.0 - 2019-07-01
 ### Added
-- detailedReports method
-
+- detailedReports methods
 
 ## 0.8.0 - 2019-06-11
 ### Added
