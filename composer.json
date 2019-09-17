@@ -15,9 +15,11 @@
 
     "require": {
         "php": ">=5.6.0",
-        "illuminate/support": ">=5.0",
         "nesbot/carbon": ">=1.19",
         "ixudra/curl": "~6.0"
+    },
+    "suggest": {
+        "illuminate/support": "Support for laravel using the TogglServiceProvider"
     },
 
     "autoload": {
