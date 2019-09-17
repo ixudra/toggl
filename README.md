@@ -19,8 +19,8 @@ Pull this package in through Composer.
 ```js
 
     {
-        "require": {
-            "ixudra/toggl": "0.*"
+        'require': {
+            'ixudra/toggl': '0.*'
         }
     }
 
@@ -147,7 +147,7 @@ of the requests. Additionally, the package also provides several utility methods
     $response = Toggl::dashboard();
 
     // Create a client
-    $response = Toggl::createClient( array( "name" => "Test company" ) ) );
+    $response = Toggl::createClient( array( 'name' => 'Test company' ) ) );
 
     // Get a summary information of this month for all user 
     $response = Toggl::summaryThisMonth();
@@ -170,7 +170,7 @@ of the requests. Additionally, the package also provides several utility methods
     $response = $togglService->dashboard();
 
     // Create a client
-    $response = $togglService->createClient( array( "name" => "Test company" ) );
+    $response = $togglService->createClient( array( 'name' => 'Test company' ) );
 
     // Get a summary information of this month for all user 
     $response = $togglService->summaryThisMonth();

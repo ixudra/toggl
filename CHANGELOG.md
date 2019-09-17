@@ -2,6 +2,11 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 0.11.0 - 2019-09-17
+### Updated
+- Updated composer to improve Laravel 6 compatibility
+- Minor README fixes
+
 ## 0.10.0 - 2019-07-03
 ### Added
 - detailedToday and detailedYesterday methods

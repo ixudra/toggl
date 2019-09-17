@@ -11,7 +11,7 @@ trait TimeEntryTrait {
      * @param   string      $endDate    End of date range
      * @return  stdClass
      */
-    public function timeEntries($startDate, $endDate)
+    public function timeEntries($startDate, $endDate = null)
     {
         $requestData = array(
             'wid'           => $this->workspaceId,
