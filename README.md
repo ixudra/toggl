@@ -3,10 +3,9 @@ ixudra/toggl
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ixudra/toggl.svg?style=flat-square)](https://packagist.org/packages/ixudra/toggl)
 [![license](https://img.shields.io/github/license/ixudra/toggl.svg)]()
-[![StyleCI](https://styleci.io/repos/83850034/shield)](https://styleci.io/repos/83850034)
 [![Total Downloads](https://img.shields.io/packagist/dt/ixudra/toggl.svg?style=flat-square)](https://packagist.org/packages/ixudra/toggl)
 
-Custom PHP library to connect with the Toggl API - developed by [Ixudra](http://ixudra.be).
+Custom PHP library to connect with the Toggl API - developed by [Ixudra](https://ixudra.be).
 
 This package can be used by anyone at any given time, but keep in mind that it is optimized for my personal custom workflow. It may not suit your project perfectly and modifications may be in order.
 
@@ -39,7 +38,7 @@ Add the service provider to your `config/app.php` file
         //...
         Ixudra\Toggl\TogglServiceProvider::class,
 
-    )
+    ),
 
 ```
 
