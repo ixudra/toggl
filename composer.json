@@ -26,5 +26,15 @@
         "psr-4": {
             "Ixudra\\Toggl\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ixudra\\Toggl\\TogglServiceProvider"
+            ],
+            "aliases": {
+                "Toggl": "Ixudra\\Toggl\\Facades\\Toggl"
+            }
+        }
     }
 }
