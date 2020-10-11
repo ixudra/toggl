@@ -29,6 +29,13 @@ Pull this package in through Composer.
 
 ### Laravel Integration
 
+#### Laravel 5.5+
+
+Automatic package discovery will take care of registering the
+service provider and facade.
+
+#### Laravel < 5.5
+
 Add the service provider to your `config/app.php` file
 
 ```php
@@ -54,6 +61,8 @@ Add the facade to your `config/app.php` file:
     ),
 
 ```
+
+#### Configuration
 
 Add workspace ID and your personal API token to your `.env` file:
 
