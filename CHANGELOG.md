@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 0.12.0 - 2020-10-11
+### Added
+- Laravel auto discover
+
 ## 0.11.0 - 2019-09-17
 ### Updated
 - Updated composer to improve Laravel 6 compatibility
