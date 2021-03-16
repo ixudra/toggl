@@ -30,11 +30,15 @@ class TogglService {
     /** @var string $apiToken */
     protected $apiToken = null;
 
+    /** @var string $baseUrl */
+    protected $baseUrl = null;
+
 
     public function __construct($workspaceId = null, $apiToken = null)
     {
         $this->workspaceId = $workspaceId;
         $this->apiToken = $apiToken;
+        $this->baseUrl = 'https://api.track.toggl.com';
     }
 
 

@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 1.0.0 - 2021-03-16
+### Updated
+- Updated Toggl API URL
+
 ## 0.12.0 - 2020-10-11
 ### Added
 - Laravel auto discover

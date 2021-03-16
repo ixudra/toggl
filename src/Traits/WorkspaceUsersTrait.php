@@ -20,7 +20,7 @@ trait WorkspaceUsersTrait
             'emails'          => $data
         );
 
-        return $this->sendPostMessage('https://www.toggl.com/api/v8/workspaces/' . $this->workspaceId . '/invite', $requestData);
+        return $this->sendPostMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/invite', $requestData);
     }
 
     /**
@@ -36,7 +36,7 @@ trait WorkspaceUsersTrait
             'workspace_user'          => $data
         );
 
-        return $this->sendPostMessage('https://www.toggl.com/api/v8/workspace_users/'. $id, $requestData);
+        return $this->sendPostMessage($this->baseUrl .'/v8/workspace_users/'. $id, $requestData);
     }
 
     /**
@@ -51,7 +51,7 @@ trait WorkspaceUsersTrait
             'task'          => $data
         );
 
-        return $this->sendDeleteMessage('https://www.toggl.com/api/v8/workspace_users/'. $id);
+        return $this->sendDeleteMessage($this->baseUrl .'/v8/workspace_users/'. $id);
     }
 
     /**
@@ -61,7 +61,7 @@ trait WorkspaceUsersTrait
      */
     public function users()
     {
-        return $this->sendGetMessage('https://www.toggl.com/api/v8/workspaces/' . $this->workspaceId . '/workspace_users');
+        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/workspace_users');
     }
 
 }

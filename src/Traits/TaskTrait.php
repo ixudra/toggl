@@ -18,7 +18,7 @@ trait TaskTrait {
             'task'          => $data
         );
 
-        return $this->sendPostMessage( 'https://www.toggl.com/api/v8/tasks', $requestData );
+        return $this->sendPostMessage( $this->baseUrl .'/v8/tasks', $requestData );
     }
 
     /**
@@ -29,7 +29,7 @@ trait TaskTrait {
      */
     public function task($id)
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/tasks/'. $id );
+        return $this->sendGetMessage( $this->baseUrl .'/v8/tasks/'. $id );
     }
 
     /**
@@ -45,7 +45,7 @@ trait TaskTrait {
             'task'          => $data
         );
 
-        return $this->sendPutMessage( 'https://www.toggl.com/api/v8/tasks/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl .'/v8/tasks/'. $id, $requestData );
     }
 
     /**
@@ -56,7 +56,7 @@ trait TaskTrait {
      */
     public function deleteTask($id)
     {
-        return $this->sendDeleteMessage( 'https://www.toggl.com/api/v8/tasks/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl .'/v8/tasks/'. $id );
     }
 
 }

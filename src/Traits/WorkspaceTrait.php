@@ -12,7 +12,7 @@ trait WorkspaceTrait
      */
     public function workspaces()
     {
-        return $this->sendGetMessage('https://www.toggl.com/api/v8/workspaces');
+        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces');
 
     }
 
@@ -23,7 +23,7 @@ trait WorkspaceTrait
      */
     public function workspaceProjects()
     {
-        return $this->sendGetMessage('https://www.toggl.com/api/v8/workspaces/' . $this->workspaceId . '/projects');
+        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/projects');
 
     }
 

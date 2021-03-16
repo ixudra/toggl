@@ -19,7 +19,7 @@ trait TimeEntryTrait {
             'end_date'      => $endDate,
         );
 
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries', $requestData );
+        return $this->sendGetMessage( $this->baseUrl .'/v8/time_entries', $requestData );
     }
 
     /**
@@ -35,7 +35,7 @@ trait TimeEntryTrait {
             'time_entry'    => $data
         );
 
-        return $this->sendPostMessage( 'https://www.toggl.com/api/v8/time_entries', $requestData );
+        return $this->sendPostMessage( $this->baseUrl .'/v8/time_entries', $requestData );
     }
 
     /**
@@ -51,7 +51,7 @@ trait TimeEntryTrait {
             'time_entry'    => $data
         );
 
-        return $this->sendPostMessage( 'https://www.toggl.com/api/v8/time_entries/start', $requestData );
+        return $this->sendPostMessage( $this->baseUrl .'/v8/time_entries/start', $requestData );
     }
 
     /**
@@ -62,7 +62,7 @@ trait TimeEntryTrait {
      */
     public function stopTimeEntry($id)
     {
-        return $this->sendPutMessage( 'https://www.toggl.com/api/v8/time_entries/'. $id .'/stop' );
+        return $this->sendPutMessage( $this->baseUrl .'/v8/time_entries/'. $id .'/stop' );
     }
 
     /**
@@ -73,7 +73,7 @@ trait TimeEntryTrait {
      */
     public function timeEntry($id)
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries/'. $id );
+        return $this->sendGetMessage( $this->baseUrl .'/v8/time_entries/'. $id );
     }
     
     /**
@@ -83,7 +83,7 @@ trait TimeEntryTrait {
      */
     public function entry()
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries' );
+        return $this->sendGetMessage( $this->baseUrl .'/v8/time_entries' );
     }
 
     /**
@@ -93,7 +93,7 @@ trait TimeEntryTrait {
      */
     public function current()
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/time_entries/current' );
+        return $this->sendGetMessage( $this->baseUrl .'/v8/time_entries/current' );
     }
 
     /**
@@ -109,7 +109,7 @@ trait TimeEntryTrait {
             'time_entry'    => $data
         );
 
-        return $this->sendPutMessage( 'https://www.toggl.com/api/v8/time_entries/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl .'/v8/time_entries/'. $id, $requestData );
     }
 
     /**
@@ -120,7 +120,7 @@ trait TimeEntryTrait {
      */
     public function deleteTimeEntry($id)
     {
-        return $this->sendDeleteMessage( 'https://www.toggl.com/api/v8/time_entries/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl .'/v8/time_entries/'. $id );
     }
 
 }

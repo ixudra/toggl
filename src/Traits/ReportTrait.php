@@ -12,7 +12,7 @@ trait ReportTrait {
      */
     public function dashboard()
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/api/v8/dashboard/'. $this->workspaceId );
+        return $this->sendGetMessage( $this->baseUrl .'/v8/dashboard/'. $this->workspaceId );
     }
 
     /**
@@ -23,7 +23,7 @@ trait ReportTrait {
      */
     public function summary(array $data = array())
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/reports/api/v2/summary', $data );
+        return $this->sendGetMessage( $this->baseUrl .'/reports/api/v2/summary', $data );
     }
 
     /**
@@ -33,7 +33,7 @@ trait ReportTrait {
      */
     public function detailed(array $data = array())
     {
-        return $this->sendGetMessage( 'https://www.toggl.com/reports/api/v2/details', $data );
+        return $this->sendGetMessage( $this->baseUrl .'/reports/api/v2/details', $data );
     }
 
     /**
@@ -46,7 +46,7 @@ trait ReportTrait {
     {
         $data[ 'project_id' ] = $id;
 
-        return $this->sendGetMessage( 'https://www.toggl.com/reports/api/v2/project', $data );
+        return $this->sendGetMessage( $this->baseUrl .'/reports/api/v2/project', $data );
     }
 
 }

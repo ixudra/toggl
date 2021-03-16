@@ -1,7 +1,7 @@
 {
     "name": "ixudra/toggl",
     "description": "Custom PHP library to connect with the Toggl API - developed by Ixudra",
-    "version": "0.12.0",
+    "version": "1.0.0",
     "keywords": ["Ixudra", "Laravel", "Toggl", "API"],
     "homepage": "https://ixudra.be",
     "license": "MIT",
@@ -9,7 +9,7 @@
     "authors": [
         {
             "name": "Jan Oris",
-            "email": "jan.oris@gmail.com"
+            "email": "jan.oris@ixudra.be"
         }
     ],
 
@@ -18,6 +18,7 @@
         "nesbot/carbon": ">=1.19",
         "ixudra/curl": "~6.0"
     },
+
     "suggest": {
         "illuminate/support": "Support for laravel using the TogglServiceProvider"
     },
@@ -27,6 +28,7 @@
             "Ixudra\\Toggl\\": "src/"
         }
     },
+
     "extra": {
         "laravel": {
             "providers": [
