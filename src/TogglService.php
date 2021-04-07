@@ -38,7 +38,7 @@ class TogglService {
     {
         $this->workspaceId = $workspaceId;
         $this->apiToken = $apiToken;
-        $this->baseUrl = 'https://api.track.toggl.com';
+        $this->baseUrl = 'https://api.track.toggl.com/api';
     }
 
 
