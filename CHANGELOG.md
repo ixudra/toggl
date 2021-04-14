@@ -2,6 +2,14 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 1.1.0 - 2021-04-14
+### Added
+- Additional workspace methods
+
+## 1.0.1 - 2021-04-07
+### Updated
+- Updated Toggl API URL
+
 ## 1.0.0 - 2021-03-16
 ### Updated
 - Updated Toggl API URL

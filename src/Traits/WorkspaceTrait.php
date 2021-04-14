@@ -3,8 +3,8 @@
 
 use stdClass;
 
-trait WorkspaceTrait
-{
+trait WorkspaceTrait {
+
     /**
      * Get workspaces
      *
@@ -48,13 +48,16 @@ trait WorkspaceTrait
     /**
      * Get workspace tasks
      *
+     * @param   boolean     $active       Status of the tasks
      * @return stdClass
      */
     public function workspaceTasks($active = true)
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/tasks', [
-            'active' => $active
-        ]);
+        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/tasks',
+            array(
+                'active'    => $active,
+            )
+        );
     }
     
     /**
