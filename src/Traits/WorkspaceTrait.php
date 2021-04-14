@@ -6,7 +6,7 @@ use stdClass;
 trait WorkspaceTrait
 {
     /**
-     * Get workspace projects
+     * Get workspaces
      *
      * @return stdClass
      */
