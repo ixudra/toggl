@@ -12,7 +12,7 @@ trait WorkspaceTrait {
      */
     public function workspaces()
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces');
+        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces');
     }
     
     /**
@@ -22,7 +22,7 @@ trait WorkspaceTrait {
      */
     public function workspaceClients()
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/clients');
+        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/clients');
     }
     
     /**
@@ -32,7 +32,7 @@ trait WorkspaceTrait {
      */
     public function workspaceGroups()
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/groups');
+        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/groups');
     }
 
     /**
@@ -42,7 +42,7 @@ trait WorkspaceTrait {
      */
     public function workspaceProjects()
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/projects');
+        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/projects');
     }
 
     /**
@@ -53,7 +53,7 @@ trait WorkspaceTrait {
      */
     public function workspaceTasks($active = true)
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/tasks',
+        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/tasks',
             array(
                 'active'    => $active,
             )
@@ -67,7 +67,7 @@ trait WorkspaceTrait {
      */
     public function workspaceTags()
     {
-        return $this->sendGetMessage($this->baseUrl .'/v8/workspaces/' . $this->workspaceId . '/tags');
+        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/tags');
     }
 
 }
