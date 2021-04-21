@@ -18,7 +18,7 @@ trait GroupTrait {
             'group'        => $data
         );
 
-        return $this->sendPostMessage( $this->baseUrl .'/v8/groups', $requestData );
+        return $this->sendPostMessage( $this->baseUrl .'/api/v8/groups', $requestData );
     }
 
     /**
@@ -34,7 +34,7 @@ trait GroupTrait {
             'group'         => $data
         );
 
-        return $this->sendPutMessage( $this->baseUrl .'/v8/groups/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl .'/api/v8/groups/'. $id, $requestData );
     }
 
     /**
@@ -45,7 +45,7 @@ trait GroupTrait {
      */
     public function deleteGroup($id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl .'/v8/groups/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl .'/api/v8/groups/'. $id );
     }
 
 }

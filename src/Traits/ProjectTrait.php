@@ -12,7 +12,7 @@ trait ProjectTrait {
      */
     public function projects()
     {
-        return $this->sendGetMessage( $this->baseUrl .'/v8/projects' );
+        return $this->sendGetMessage( $this->baseUrl .'/api/v8/projects' );
     }
 
     /**
@@ -28,7 +28,7 @@ trait ProjectTrait {
             'project'        => $data
         );
 
-        return $this->sendPostMessage( $this->baseUrl .'/v8/projects', $requestData );
+        return $this->sendPostMessage( $this->baseUrl .'/api/v8/projects', $requestData );
     }
 
     /**
@@ -39,7 +39,7 @@ trait ProjectTrait {
      */
     public function project($id)
     {
-        return $this->sendGetMessage( $this->baseUrl .'/v8/projects/'. $id );
+        return $this->sendGetMessage( $this->baseUrl .'/api/v8/projects/'. $id );
     }
 
     /**
@@ -55,7 +55,7 @@ trait ProjectTrait {
             'project'        => $data
         );
 
-        return $this->sendPutMessage( $this->baseUrl .'/v8/projects/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl .'/api/v8/projects/'. $id, $requestData );
     }
 
     /**
@@ -66,7 +66,7 @@ trait ProjectTrait {
      */
     public function deleteProject($id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl .'/v8/projects/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl .'/api/v8/projects/'. $id );
     }
 
     /**
@@ -78,7 +78,7 @@ trait ProjectTrait {
      */
     public function projectUsers($id, array $data = array())
     {
-        return $this->sendGetMessage( $this->baseUrl .'/v8/projects/'. $id .'/project_users', $data );
+        return $this->sendGetMessage( $this->baseUrl .'/api/v8/projects/'. $id .'/project_users', $data );
     }
 
     /**
@@ -90,7 +90,7 @@ trait ProjectTrait {
      */
     public function projectTasks($id, array $data = array())
     {
-        return $this->sendGetMessage( $this->baseUrl .'/v8/projects/'. $id .'/tasks', $data );
+        return $this->sendGetMessage( $this->baseUrl .'/api/v8/projects/'. $id .'/tasks', $data );
     }
 
 }

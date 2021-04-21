@@ -18,7 +18,7 @@ trait TagTrait {
             'tag'       => $data
         );
 
-        return $this->sendPostMessage( $this->baseUrl .'/v8/tags', $requestData );
+        return $this->sendPostMessage( $this->baseUrl .'/api/v8/tags', $requestData );
     }
 
     /**
@@ -34,7 +34,7 @@ trait TagTrait {
             'tag'       => $data
         );
 
-        return $this->sendPutMessage( $this->baseUrl .'/v8/tags/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl .'/api/v8/tags/'. $id, $requestData );
     }
 
     /**
@@ -45,7 +45,7 @@ trait TagTrait {
      */
     public function deleteTag($id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl .'/v8/tags/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl .'/api/v8/tags/'. $id );
     }
 
 }
