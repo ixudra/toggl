@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 1.2.0 - 2021-06-25
+### Updated
+- Added options to `workspaceProjects()` method
+
 ## 1.1.0 - 2021-04-21
 ### Updated
 - Updated Toggl API URL for reports methods

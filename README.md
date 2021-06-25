@@ -155,13 +155,13 @@ of the requests. Additionally, the package also provides several utility methods
     $response = Toggl::dashboard();
 
     // Create a client
-    $response = Toggl::createClient( array( 'name' => 'Test company' ) ) );
+    $response = Toggl::createClient( array( 'name' => 'Test company' ) );
 
     // Get a summary information of this month for all user 
     $response = Toggl::summaryThisMonth();
 
     // Get a summary information of last month for one specific user 
-    $response = Toggl::summaryLastMonth( array( 'user_ids' => '123' ) ) );
+    $response = Toggl::summaryLastMonth( array( 'user_ids' => '123' ) );
 
 ```
 

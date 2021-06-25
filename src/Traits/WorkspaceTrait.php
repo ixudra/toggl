@@ -38,10 +38,10 @@ trait WorkspaceTrait {
     /**
      * Get workspace projects
      * 
-     * @param   array       $data       Data payload that is to be sent with the request
+     * @param   array       $data           Data payload that is to be sent with the request
      * @return stdClass
      */
-    public function workspaceProjects( array $data = array() )
+    public function workspaceProjects(array $data = array())
     {
         return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/projects', $data);
     }
@@ -49,7 +49,7 @@ trait WorkspaceTrait {
     /**
      * Get workspace tasks
      *
-     * @param   boolean     $active       Status of the tasks
+     * @param   boolean     $active         Status of the tasks
      * @return stdClass
      */
     public function workspaceTasks($active = true)
