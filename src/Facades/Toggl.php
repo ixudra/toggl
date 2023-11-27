@@ -10,7 +10,7 @@ class Toggl extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'Toggl';
+        return 'IxdTogglPckg';
     }
 
 }

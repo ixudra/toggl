@@ -15,7 +15,7 @@ trait GroupTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'group'        => $data
+            'group'        => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/groups', $requestData );
@@ -31,7 +31,7 @@ trait GroupTrait {
     public function updateGroup($id, array $data = array())
     {
         $requestData = array(
-            'group'         => $data
+            'group'         => $data,
         );
 
         return $this->sendPutMessage( $this->baseUrl .'/api/v8/groups/'. $id, $requestData );

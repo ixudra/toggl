@@ -25,7 +25,7 @@ trait ClientTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'client'        => $data
+            'client'        => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/clients', $requestData );
@@ -52,7 +52,7 @@ trait ClientTrait {
     public function updateClient($id, array $data = array())
     {
         $requestData = array(
-            'client'        => $data
+            'client'        => $data,
         );
 
         return $this->sendPutMessage( $this->baseUrl .'/api/v8/clients/'. $id, $requestData );

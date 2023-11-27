@@ -18,7 +18,7 @@ class TogglServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->singleton('Toggl', function () {
+        $this->app->singleton('IxdTogglPckg', function () {
                 return new TogglService( Config::get( 'services.toggl.workspace' ), Config::get( 'services.toggl.token' ) );
             }
         );
@@ -29,7 +29,7 @@ class TogglServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return array('Toggl');
+        return array('IxdTogglPckg');
     }
 
 }

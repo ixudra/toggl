@@ -15,7 +15,7 @@ trait TaskTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'task'          => $data
+            'task'          => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/tasks', $requestData );
@@ -42,7 +42,7 @@ trait TaskTrait {
     public function updateTask($id, array $data = array())
     {
         $requestData = array(
-            'task'          => $data
+            'task'          => $data,
         );
 
         return $this->sendPutMessage( $this->baseUrl .'/api/v8/tasks/'. $id, $requestData );

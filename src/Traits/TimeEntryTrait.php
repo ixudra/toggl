@@ -1,22 +1,23 @@
 <?php namespace Ixudra\Toggl\Traits;
 
 
+use Carbon\Carbon;
 use stdClass;
 
 trait TimeEntryTrait {
 
     /**
      * Get time entries started in a specific time range
-     * @param   string      $startDate  Start of date range
-     * @param   string      $endDate    End of date range
+     * @param   Carbon      $startDate  Start of date range
+     * @param   Carbon      $endDate    End of date range
      * @return  stdClass
      */
     public function timeEntries($startDate, $endDate = null)
     {
         $requestData = array(
             'wid'           => $this->workspaceId,
-            'start_date'    => $startDate,
-            'end_date'      => $endDate,
+            'start_date'    => $startDate->toIso8601ZuluString(),
+            'end_date'      => $endDate->toIso8601ZuluString(),
         );
 
         return $this->sendGetMessage( $this->baseUrl .'/api/v8/time_entries', $requestData );
@@ -32,7 +33,7 @@ trait TimeEntryTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'time_entry'    => $data
+            'time_entry'    => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/time_entries', $requestData );
@@ -48,7 +49,7 @@ trait TimeEntryTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'time_entry'    => $data
+            'time_entry'    => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/time_entries/start', $requestData );

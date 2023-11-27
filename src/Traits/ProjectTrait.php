@@ -25,7 +25,7 @@ trait ProjectTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'project'        => $data
+            'project'        => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/projects', $requestData );
@@ -52,7 +52,7 @@ trait ProjectTrait {
     public function updateProject($id, array $data = array())
     {
         $requestData = array(
-            'project'        => $data
+            'project'        => $data,
         );
 
         return $this->sendPutMessage( $this->baseUrl .'/api/v8/projects/'. $id, $requestData );

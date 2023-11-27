@@ -17,7 +17,7 @@ trait WorkspaceUsersTrait
     public function inviteUsers(array $data = array())
     {
         $requestData = array(
-            'emails'          => $data
+            'emails'          => $data,
         );
 
         return $this->sendPostMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/invite', $requestData);
@@ -33,7 +33,7 @@ trait WorkspaceUsersTrait
     public function updateUser($id, array $data = array())
     {
         $requestData = array(
-            'workspace_user'          => $data
+            'workspace_user'          => $data,
         );
 
         return $this->sendPostMessage($this->baseUrl .'/api/v8/workspace_users/'. $id, $requestData);
@@ -48,7 +48,7 @@ trait WorkspaceUsersTrait
     public function deleteUser($id, array $data = array())
     {
         $requestData = array(
-            'task'          => $data
+            'task'          => $data,
         );
 
         return $this->sendDeleteMessage($this->baseUrl .'/api/v8/workspace_users/'. $id);

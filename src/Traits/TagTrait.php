@@ -15,7 +15,7 @@ trait TagTrait {
     {
         $data[ 'wid' ] = $this->workspaceId;
         $requestData = array(
-            'tag'       => $data
+            'tag'       => $data,
         );
 
         return $this->sendPostMessage( $this->baseUrl .'/api/v8/tags', $requestData );
