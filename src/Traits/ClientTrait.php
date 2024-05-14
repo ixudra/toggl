@@ -12,7 +12,7 @@ trait ClientTrait {
      */
     public function clients()
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/clients' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/clients' );
     }
 
     /**
@@ -28,7 +28,7 @@ trait ClientTrait {
             'client'        => $data,
         );
 
-        return $this->sendPostMessage( $this->baseUrl .'/api/v8/clients', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/clients', $requestData );
     }
 
     /**
@@ -39,7 +39,7 @@ trait ClientTrait {
      */
     public function client($id)
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/clients/'. $id );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id );
     }
 
     /**
@@ -55,7 +55,7 @@ trait ClientTrait {
             'client'        => $data,
         );
 
-        return $this->sendPutMessage( $this->baseUrl .'/api/v8/clients/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id, $requestData );
     }
 
     /**
@@ -66,7 +66,7 @@ trait ClientTrait {
      */
     public function deleteClient($id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl .'/api/v8/clients/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id );
     }
 
     /**
@@ -78,7 +78,7 @@ trait ClientTrait {
      */
     public function clientProjects($id, array $data = array())
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/clients/'. $id .'/projects', $data );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id .'/projects', $data );
     }
 
 }

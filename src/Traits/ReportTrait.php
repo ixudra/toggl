@@ -12,7 +12,7 @@ trait ReportTrait {
      */
     public function dashboard()
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/dashboard/'. $this->workspaceId );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/dashboard/'. $this->workspaceId );
     }
 
     /**

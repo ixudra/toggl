@@ -20,7 +20,7 @@ trait TimeEntryTrait {
             'end_date'      => $endDate->toIso8601ZuluString(),
         );
 
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/time_entries', $requestData );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries', $requestData );
     }
 
     /**
@@ -36,7 +36,7 @@ trait TimeEntryTrait {
             'time_entry'    => $data,
         );
 
-        return $this->sendPostMessage( $this->baseUrl .'/api/v8/time_entries', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries', $requestData );
     }
 
     /**
@@ -52,7 +52,7 @@ trait TimeEntryTrait {
             'time_entry'    => $data,
         );
 
-        return $this->sendPostMessage( $this->baseUrl .'/api/v8/time_entries/start', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/start', $requestData );
     }
 
     /**
@@ -63,7 +63,7 @@ trait TimeEntryTrait {
      */
     public function stopTimeEntry($id)
     {
-        return $this->sendPutMessage( $this->baseUrl .'/api/v8/time_entries/'. $id .'/stop' );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id .'/stop' );
     }
 
     /**
@@ -74,9 +74,9 @@ trait TimeEntryTrait {
      */
     public function timeEntry($id)
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/time_entries/'. $id );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id );
     }
-    
+
     /**
      * Summary report returns the aggregated time entries data
      *
@@ -84,7 +84,7 @@ trait TimeEntryTrait {
      */
     public function entry()
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/time_entries' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries' );
     }
 
     /**
@@ -94,7 +94,7 @@ trait TimeEntryTrait {
      */
     public function current()
     {
-        return $this->sendGetMessage( $this->baseUrl .'/api/v8/time_entries/current' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/current' );
     }
 
     /**
@@ -110,7 +110,7 @@ trait TimeEntryTrait {
             'time_entry'    => $data
         );
 
-        return $this->sendPutMessage( $this->baseUrl .'/api/v8/time_entries/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id, $requestData );
     }
 
     /**
@@ -121,7 +121,7 @@ trait TimeEntryTrait {
      */
     public function deleteTimeEntry($id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl .'/api/v8/time_entries/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id );
     }
 
 }
