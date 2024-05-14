@@ -12,9 +12,9 @@ trait WorkspaceTrait {
      */
     public function workspaces()
     {
-        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces');
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces');
     }
-    
+
     /**
      * Get workspace clients
      *
@@ -22,9 +22,9 @@ trait WorkspaceTrait {
      */
     public function workspaceClients()
     {
-        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/clients');
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/clients');
     }
-    
+
     /**
      * Get workspace groups
      *
@@ -32,18 +32,18 @@ trait WorkspaceTrait {
      */
     public function workspaceGroups()
     {
-        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/groups');
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/groups');
     }
 
     /**
      * Get workspace projects
-     * 
+     *
      * @param   array       $data           Data payload that is to be sent with the request
      * @return stdClass
      */
     public function workspaceProjects(array $data = array())
     {
-        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/projects', $data);
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/projects', $data);
     }
 
     /**
@@ -54,13 +54,13 @@ trait WorkspaceTrait {
      */
     public function workspaceTasks($active = true)
     {
-        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/tasks',
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/tasks',
             array(
                 'active'    => $active,
             )
         );
     }
-    
+
     /**
      * Get workspace tags
      *
@@ -68,7 +68,7 @@ trait WorkspaceTrait {
      */
     public function workspaceTags()
     {
-        return $this->sendGetMessage($this->baseUrl .'/api/v8/workspaces/' . $this->workspaceId . '/tags');
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/tags');
     }
 
 }
