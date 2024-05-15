@@ -12,7 +12,7 @@ trait ClientTrait {
      */
     public function clients()
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/clients' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/clients' );
     }
 
     /**
@@ -21,14 +21,9 @@ trait ClientTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createClient(array $data = array())
+    public function createClient(array $data = [])
     {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'client'        => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/clients', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients', $data );
     }
 
     /**
@@ -37,9 +32,9 @@ trait ClientTrait {
      * @param   integer     $id         ID of the client
      * @return  stdClass
      */
-    public function client($id)
+    public function client(int $id)
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id );
     }
 
     /**
@@ -49,13 +44,9 @@ trait ClientTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateClient($id, array $data = array())
+    public function updateClient(int $id, array $data = [])
     {
-        $requestData = array(
-            'client'        => $data,
-        );
-
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id, $data );
     }
 
     /**
@@ -64,21 +55,30 @@ trait ClientTrait {
      * @param   integer     $id         ID of the client
      * @return  stdClass
      */
-    public function deleteClient($id)
+    public function deleteClient(int $id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id );
     }
 
     /**
-     * Get client projects
+     * Archives client
      *
-     * @param   integer     $id         ID of the project
-     * @param   array       $data       Data payload that is to be sent with the request
-     * @return  stdClass
+     * @param integer $id ID of the client
+     * @return stdClass
      */
-    public function clientProjects($id, array $data = array())
+    public function archiveClient(int $id)
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/clients/'. $id .'/projects', $data );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id );
     }
 
+    /**
+     * Restores client and related projects
+     *
+     * @param integer $id ID of the client
+     * @return stdClass
+     */
+    public function restoreClient(int $id, array $data = [])
+    {
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id, $data );
+    }
 }
