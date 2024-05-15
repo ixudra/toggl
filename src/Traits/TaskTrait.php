@@ -4,6 +4,27 @@
 use stdClass;
 
 trait TaskTrait {
+    /**
+     * Get project tasks
+     *
+     * @param   integer     $id         ID of the project
+     * @return  stdClass
+     */
+    public function projectTasks(int $id)
+    {
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $id .'/tasks');
+    }
+
+    /**
+     * Get tasks
+     *
+     * @param   array       $data       Data payload that is to be sent with the request
+     * @return stdClass
+     */
+    public function tasks(array $data = [])
+    {
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/me/tasks', $data);
+    }
 
     /**
      * Summary report returns the aggregated time entries data
@@ -11,14 +32,9 @@ trait TaskTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createTask(array $data = array())
+    public function createTask(int $projectId, array $data = [])
     {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'task'          => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/tasks', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $projectId .'/tasks', $data );
     }
 
     /**
@@ -27,9 +43,9 @@ trait TaskTrait {
      * @param   integer     $id         ID of the task
      * @return  stdClass
      */
-    public function task($id)
+    public function task(int $id, int $projectId)
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/tasks/'. $id );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $projectId .'/tasks/'. $id );
     }
 
     /**
@@ -39,13 +55,9 @@ trait TaskTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateTask($id, array $data = array())
+    public function updateTask(int $id, int $projectId, array $data = [])
     {
-        $requestData = array(
-            'task'          => $data,
-        );
-
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/tasks/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $projectId .'/tasks/'. $id, $data );
     }
 
     /**
@@ -54,9 +66,9 @@ trait TaskTrait {
      * @param   integer     $id         ID of the task
      * @return  stdClass
      */
-    public function deleteTask($id)
+    public function deleteTask(int $id, int $projectId)
     {
-        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/tasks/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $projectId .'/tasks/'. $id );
     }
 
 }
