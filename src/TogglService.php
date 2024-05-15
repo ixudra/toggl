@@ -99,6 +99,18 @@ class TogglService {
     }
 
     /**
+     * Send a PATCH message to the Toggl API
+     *
+     * @param $url
+     * @return mixed
+     */
+    protected function sendPatchMessage($url)
+    {
+        return $this->prepareMessage( $url )
+            ->patch();
+    }
+
+    /**
      * Prepare a request that is to be sent to the Toggl API
      *
      * @param   string      $url        Url to which the request is to be sent
