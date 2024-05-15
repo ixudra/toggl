@@ -12,15 +12,17 @@ trait TimeEntryTrait {
      * @param   Carbon      $endDate    End of date range
      * @return  stdClass
      */
-    public function timeEntries($startDate, $endDate = null)
+    public function timeEntries(Carbon $startDate = null, Carbon $endDate = null)
     {
-        $requestData = array(
-            'wid'           => $this->workspaceId,
-            'start_date'    => $startDate->toIso8601ZuluString(),
-            'end_date'      => $endDate->toIso8601ZuluString(),
-        );
+        $requestData = [];
+        if (!empty($startDate) || !empty($endDate)) {
+            $requestData = [
+                'start_date'    => $startDate->toIso8601ZuluString(),
+                'end_date'      => $endDate->toIso8601ZuluString(),
+            ];
+        }
 
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries', $requestData );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/time_entries', $requestData );
     }
 
     /**
@@ -29,30 +31,9 @@ trait TimeEntryTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createTimeEntry(array $data = array())
+    public function createTimeEntry(array $data = [])
     {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'time_entry'    => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries', $requestData );
-    }
-
-    /**
-     * Start a time entry
-     *
-     * @param   array       $data       Data payload that is to be sent with the request
-     * @return  stdClass
-     */
-    public function startTimeEntry(array $data = array())
-    {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'time_entry'    => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/start', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/time_entries', $data);
     }
 
     /**
@@ -61,9 +42,9 @@ trait TimeEntryTrait {
      * @param   integer     $id         ID of the time entry
      * @return  stdClass
      */
-    public function stopTimeEntry($id)
+    public function stopTimeEntry(int $id)
     {
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id .'/stop' );
+        return $this->sendPatchMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/time_entries/'. $id .'/stop' );
     }
 
     /**
@@ -72,19 +53,9 @@ trait TimeEntryTrait {
      * @param   integer     $id         ID of the time entry
      * @return  stdClass
      */
-    public function timeEntry($id)
+    public function timeEntry(int $id)
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id );
-    }
-
-    /**
-     * Summary report returns the aggregated time entries data
-     *
-     * @return  stdClass
-     */
-    public function entry()
-    {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/time_entries/'. $id );
     }
 
     /**
@@ -94,7 +65,7 @@ trait TimeEntryTrait {
      */
     public function current()
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/current' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/time_entries/current' );
     }
 
     /**
@@ -104,13 +75,9 @@ trait TimeEntryTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateTimeEntry($id, array $data = array())
+    public function updateTimeEntry(int $id, array $data = [])
     {
-        $requestData = array(
-            'time_entry'    => $data
-        );
-
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/time_entries/'. $id, $data);
     }
 
     /**
@@ -119,9 +86,9 @@ trait TimeEntryTrait {
      * @param   integer     $id         ID of the time entry
      * @return  stdClass
      */
-    public function deleteTimeEntry($id)
+    public function deleteTimeEntry(int $id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/time_entries/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/time_entries/'. $id );
     }
 
 }
