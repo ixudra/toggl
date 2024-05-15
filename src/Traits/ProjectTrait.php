@@ -12,7 +12,7 @@ trait ProjectTrait {
      */
     public function projects()
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/projects' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/projects' );
     }
 
     /**
@@ -23,12 +23,7 @@ trait ProjectTrait {
      */
     public function createProject(array $data = array())
     {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'project'        => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/projects', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects', $data );
     }
 
     /**
@@ -37,9 +32,9 @@ trait ProjectTrait {
      * @param   integer     $id         ID of the project
      * @return  stdClass
      */
-    public function project($id)
+    public function project(int $id)
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/projects/'. $id );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $id );
     }
 
     /**
@@ -49,13 +44,9 @@ trait ProjectTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateProject($id, array $data = array())
+    public function updateProject(int $id, array $data = [])
     {
-        $requestData = array(
-            'project'        => $data,
-        );
-
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/projects/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $id, $data );
     }
 
     /**
@@ -64,33 +55,19 @@ trait ProjectTrait {
      * @param   integer     $id         ID of the project
      * @return  stdClass
      */
-    public function deleteProject($id)
+    public function deleteProject(int $id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/projects/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $id );
     }
 
     /**
-     * Get project users
+     * Get workspace projects users
      *
-     * @param   integer     $id         ID of the project
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function projectUsers($id, array $data = array())
+    public function projectUsers(array $data = [])
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/projects/'. $id .'/project_users', $data );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/workspaces/'. $this->workspaceId .'/project_users', $data );
     }
-
-    /**
-     * Get project tasks
-     *
-     * @param   integer     $id         ID of the project
-     * @param   array       $data       Data payload that is to be sent with the request
-     * @return  stdClass
-     */
-    public function projectTasks($id, array $data = array())
-    {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/projects/'. $id .'/tasks', $data );
-    }
-
 }
