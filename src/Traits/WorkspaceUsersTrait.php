@@ -7,36 +7,15 @@ trait WorkspaceUsersTrait
 {
 
     /**
-     * Invite new users to workspace. Response has the following properties:
-     *     data: array of created workspace user objects
-     *     notifications: array of strings. If some emails did not pass the validation the error is described here.
-     *
-     * @param  array $data Array of emails to be invited
-     * @return stdClass
-     */
-    public function inviteUsers(array $data = array())
-    {
-        $requestData = array(
-            'emails'          => $data,
-        );
-
-        return $this->sendPostMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/invite', $requestData);
-    }
-
-    /**
      * Update user - only the admin flag can be changed.
      *
      * @param  integer $id   ID of the user
      * @param  array   $data Data payload that is to be sent with the request
      * @return stdClass
      */
-    public function updateUser($id, array $data = array())
+    public function updateUser(int $id, array $data = [])
     {
-        $requestData = array(
-            'workspace_user'          => $data,
-        );
-
-        return $this->sendPostMessage($this->baseUrl . $this->apiVersionUrl . '/workspace_users/'. $id, $requestData);
+        return $this->sendPostMessage($this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/workspace_users/'. $id, $data);
     }
 
     /**
@@ -45,13 +24,9 @@ trait WorkspaceUsersTrait
      * @param  integer $id ID of the user
      * @return stdClass
      */
-    public function deleteUser($id, array $data = array())
+    public function deleteUser(int $id)
     {
-        $requestData = array(
-            'task'          => $data,
-        );
-
-        return $this->sendDeleteMessage($this->baseUrl . $this->apiVersionUrl . '/workspace_users/'. $id);
+        return $this->sendDeleteMessage($this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/workspace_users/'. $id);
     }
 
     /**
@@ -61,7 +36,7 @@ trait WorkspaceUsersTrait
      */
     public function users()
     {
-        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/workspace_users');
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/users');
     }
 
 }
