@@ -6,6 +6,7 @@ use Ixudra\Curl\CurlService;
 use Ixudra\Toggl\Traits\ClientTrait;
 use Ixudra\Toggl\Traits\DetailedReportUtilityTrait;
 use Ixudra\Toggl\Traits\GroupTrait;
+use Ixudra\Toggl\Traits\InvitationsTrait;
 use Ixudra\Toggl\Traits\ProjectTrait;
 use Ixudra\Toggl\Traits\ReportTrait;
 use Ixudra\Toggl\Traits\ReportUtilityTrait;
@@ -18,7 +19,7 @@ use stdClass;
 
 class TogglService {
 
-    use ReportTrait, DetailedReportUtilityTrait, ReportUtilityTrait, ClientTrait, TaskTrait, TagTrait, GroupTrait, ProjectTrait, TimeEntryTrait, WorkspaceTrait, WorkspaceUsersTrait;
+    use ReportTrait, DetailedReportUtilityTrait, ReportUtilityTrait, ClientTrait, TaskTrait, TagTrait, GroupTrait, ProjectTrait, TimeEntryTrait, WorkspaceTrait, WorkspaceUsersTrait, InvitationsTrait;
 
 
     /** @var CurlService $curlService */
