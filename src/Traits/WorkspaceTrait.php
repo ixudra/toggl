@@ -57,7 +57,7 @@ trait WorkspaceTrait {
         $data = [
             'active'    => $active,
         ];
-        g
+        
         return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/tasks', $data);
     }
 }
