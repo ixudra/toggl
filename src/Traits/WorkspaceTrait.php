@@ -60,15 +60,4 @@ trait WorkspaceTrait {
             )
         );
     }
-
-    /**
-     * Get workspace tags
-     *
-     * @return stdClass
-     */
-    public function workspaceTags()
-    {
-        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/workspaces/' . $this->workspaceId . '/tags');
-    }
-
 }

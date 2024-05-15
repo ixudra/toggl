@@ -4,21 +4,25 @@
 use stdClass;
 
 trait TagTrait {
+    /**
+     * Get workspace tags
+     *
+     * @return stdClass
+     */
+    public function tags()
+    {
+        return $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/tags');
+    }
 
     /**
-     * Summary report returns the aggregated time entries data
+     * Create workspace tags.
      *
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createTag(array $data = array())
+    public function createTag(array $data = [])
     {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'tag'       => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/tags', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/tags', $data);
     }
 
     /**
@@ -28,13 +32,9 @@ trait TagTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateTag($id, array $data = array())
+    public function updateTag(int $id, array $data = [])
     {
-        $requestData = array(
-            'tag'       => $data
-        );
-
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/tags/'. $id, $requestData );
+        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/tags/'. $id, $data);
     }
 
     /**
@@ -43,9 +43,9 @@ trait TagTrait {
      * @param   integer     $id         ID of the tag
      * @return  stdClass
      */
-    public function deleteTag($id)
+    public function deleteTag(int $id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/tags/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/tags/'. $id );
     }
 
 }
