@@ -119,7 +119,7 @@ class TogglService {
      */
     protected function prepareMessage($url, array $data = array())
     {
-        $data[ 'workspace_id' ] = $this->workspaceId;
+        $data[ 'workspace_id' ] = (int)$this->workspaceId;
         $data[ 'user_agent' ] = 'ixudra';
 
         return $this->getCurlService()
