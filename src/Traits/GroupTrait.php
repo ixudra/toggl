@@ -8,44 +8,38 @@ trait GroupTrait {
     /**
      * Summary report returns the aggregated time entries data
      *
-     * @param   array       $data       Data payload that is to be sent with the request
+     * @param   integer     $organizationId     ID of the organization for which the request is to be executed
+     * @param   array       $data               Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createGroup(array $data = array())
+    public function createGroup(int $organizationId, array $data = array())
     {
-        $data[ 'wid' ] = $this->workspaceId;
-        $requestData = array(
-            'group'        => $data,
-        );
-
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/groups', $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/organizations/'. $organizationId .'/groups', $data );
     }
 
     /**
      * Update a group
      *
-     * @param   integer     $id         ID of the group
-     * @param   array       $data       Data payload that is to be sent with the request
+     * @param   integer     $organizationId     ID of the organization for which the request is to be executed
+     * @param   integer     $id                 ID of the group
+     * @param   array       $data               Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateGroup($id, array $data = array())
+    public function updateGroup(int $organizationId, int $id, array $data = array())
     {
-        $requestData = array(
-            'group'         => $data,
-        );
-
-        return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl . '/groups/'. $id, $requestData );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl . '/organizations/'. $organizationId .'/groups/'. $id, $data );
     }
 
     /**
      * Delete a group
      *
-     * @param   integer     $id         ID of the group
+     * @param   integer     $organizationId     ID of the organization for which the request is to be executed
+     * @param   integer     $id                 ID of the group
      * @return  stdClass
      */
-    public function deleteGroup($id)
+    public function deleteGroup(int $organizationId, int $id)
     {
-        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/groups/'. $id );
+        return $this->sendDeleteMessage( $this->baseUrl . $this->apiVersionUrl . '/organizations/'. $organizationId .'/groups/'. $id );
     }
 
 }

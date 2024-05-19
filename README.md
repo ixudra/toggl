@@ -84,7 +84,20 @@ Add the following lines of code to your `config/services.php` file:
 
 ```
 
- > Currently, the package only supports one workspace, which will be sufficient for most users. You can override this behaviour by using the `Config::set('services.toggl.workspace', 456)` method. Support for multiple workspaces will be added in the near future.
+The credentials in the configuration file will be used as the default for the package. If for whatever reason you would like to use a different workspace ID and/or API token, you can do so using two utility methods. You can use either one, none or both, depending on your personal needs:
+
+```php
+
+    // Sets the workspace ID to a new value
+    Toggl::setWorkspaceId( 456 );
+    // Sets the API token to a new value       
+    Toggl::setApiToken( 'second_toggl_api_token' );
+    
+    $response = Toggl::createClient( array( 'name' => 'Test company' ) );
+
+```
+
+ > Keep in mind that the workspace ID and API token are stored in the service configuration. This means that once one of these values is updated, it will not go back to the default once the next request is completed. It will keep the new value until it is reset to it's original value using the same utility methods.
 
 
 ### Lumen 5.* integration
@@ -139,10 +152,10 @@ Create a new instance of the `TogglService` where you would like to use the pack
 
 The package provides an easy interface for sending requests to the Toggl API. For the full information regarding the API,
 all available methods and all possible parameters, I would refer you to the official Toggl API documentation on 
-[Github](https://github.com/toggl/toggl_api_docs). The package provides a (nearly) exact match of (almost) all of functions 
-that are described in the API documentation. The exact function definitions can be found in the `src/Traits` directory.
+[GitHub](https://github.com/toggl/toggl_api_docs). The package provides a (nearly) exact match of (almost) all the functions that are described
+in the API documentation. The exact function definitions can be found in the `src/Traits` directory.
 
-For your convenience, the package will automatically add several required parameters so you don't have to worry about 
+For your convenience, the package will automatically add several required parameters, so you don't have to worry about 
 doing so. These parameters include the workspace ID and the API token. These parameters should not be included in any
 of the requests. Additionally, the package also provides several utility methods for the 
 
@@ -218,7 +231,7 @@ This package is open-sourced software licensed under the [MIT license](http://op
 
 ## Contact
 
-For package questions, bug, suggestions and/or feature requests, please use the Github issue system and/or submit a pull request. When submitting an issue, always provide a detailed explanation of your problem, any response or feedback your get, log messages that might be relevant as well as a source code example that demonstrates the problem. If not, I will most likely not be able to help you with your problem. Please review the [contribution guidelines](https://github.com/ixudra/toggl/blob/master/CONTRIBUTING.md) before submitting your issue or pull request.
+For package questions, bug, suggestions and/or feature requests, please use the GitHub issue system and/or submit a pull request. When submitting an issue, always provide a detailed explanation of your problem, any response or feedback your get, log messages that might be relevant as well as a source code example that demonstrates the problem. If not, I will most likely not be able to help you with your problem. Please review the [contribution guidelines](https://github.com/ixudra/toggl/blob/master/CONTRIBUTING.md) before submitting your issue or pull request.
 
 For any other questions, feel free to use the credentials listed below: 
 

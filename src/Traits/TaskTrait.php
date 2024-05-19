@@ -16,23 +16,12 @@ trait TaskTrait {
     }
 
     /**
-     * Get tasks
-     *
-     * @param   array       $data       Data payload that is to be sent with the request
-     * @return stdClass
-     */
-    public function tasks(array $data = [])
-    {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/me/tasks', $data);
-    }
-
-    /**
      * Summary report returns the aggregated time entries data
      *
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createTask(int $projectId, array $data = [])
+    public function createTask(int $projectId, array $data = array())
     {
         return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $projectId .'/tasks', $data );
     }
@@ -55,7 +44,7 @@ trait TaskTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateTask(int $id, int $projectId, array $data = [])
+    public function updateTask(int $id, int $projectId, array $data = array())
     {
         return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $projectId .'/tasks/'. $id, $data );
     }

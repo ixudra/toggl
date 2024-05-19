@@ -8,14 +8,15 @@ trait TimeEntryTrait {
 
     /**
      * Get time entries started in a specific time range
+     *
      * @param   Carbon      $startDate  Start of date range
      * @param   Carbon      $endDate    End of date range
      * @return  stdClass
      */
     public function timeEntries(Carbon $startDate = null, Carbon $endDate = null)
     {
-        $requestData = [];
-        if (!empty($startDate) || !empty($endDate)) {
+        $requestData = array();
+        if( !empty($startDate) || !empty($endDate) ) {
             $requestData = [
                 'start_date'    => $startDate->toIso8601ZuluString(),
                 'end_date'      => $endDate->toIso8601ZuluString(),
@@ -31,7 +32,7 @@ trait TimeEntryTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createTimeEntry(array $data = [])
+    public function createTimeEntry(array $data = array())
     {
         return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/time_entries', $data);
     }
@@ -75,7 +76,7 @@ trait TimeEntryTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateTimeEntry(int $id, array $data = [])
+    public function updateTimeEntry(int $id, array $data = array())
     {
         return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/time_entries/'. $id, $data);
     }

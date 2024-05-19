@@ -4,10 +4,11 @@
 use stdClass;
 
 trait TagTrait {
+
     /**
      * Get workspace tags
      *
-     * @return stdClass
+     * @return  stdClass
      */
     public function tags()
     {
@@ -20,7 +21,7 @@ trait TagTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createTag(array $data = [])
+    public function createTag(array $data = array())
     {
         return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/tags', $data);
     }
@@ -32,7 +33,7 @@ trait TagTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateTag(int $id, array $data = [])
+    public function updateTag(int $id, array $data = array())
     {
         return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/tags/'. $id, $data);
     }

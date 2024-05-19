@@ -7,9 +7,7 @@ use Config;
 
 class TogglServiceProvider extends ServiceProvider {
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     protected $defer = false;
 
 

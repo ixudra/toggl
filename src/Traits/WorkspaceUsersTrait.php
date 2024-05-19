@@ -9,11 +9,11 @@ trait WorkspaceUsersTrait
     /**
      * Update user - only the admin flag can be changed.
      *
-     * @param  integer $id   ID of the user
-     * @param  array   $data Data payload that is to be sent with the request
-     * @return stdClass
+     * @param   integer     $id         ID of the user
+     * @param   array       $data       Data payload that is to be sent with the request
+     * @return  stdClass
      */
-    public function updateUser(int $id, array $data = [])
+    public function updateUser(int $id, array $data = array())
     {
         return $this->sendPostMessage($this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/workspace_users/'. $id, $data);
     }
@@ -21,8 +21,8 @@ trait WorkspaceUsersTrait
     /**
      * Delete workspace user
      *
-     * @param  integer $id ID of the user
-     * @return stdClass
+     * @param   integer     $id         ID of the user
+     * @return  stdClass
      */
     public function deleteUser(int $id)
     {
@@ -32,7 +32,7 @@ trait WorkspaceUsersTrait
     /**
      * Get workspace users
      *
-     * @return stdClass
+     * @return  stdClass
      */
     public function users()
     {

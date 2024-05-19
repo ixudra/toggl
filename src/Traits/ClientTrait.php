@@ -6,13 +6,13 @@ use stdClass;
 trait ClientTrait {
 
     /**
-     * Get clients visible to user
+     * Get workspace clients
      *
      * @return  stdClass
      */
     public function clients()
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/clients' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients' );
     }
 
     /**
@@ -21,7 +21,7 @@ trait ClientTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function createClient(array $data = [])
+    public function createClient(array $data = array())
     {
         return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients', $data );
     }
@@ -44,7 +44,7 @@ trait ClientTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateClient(int $id, array $data = [])
+    public function updateClient(int $id, array $data = array())
     {
         return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id, $data );
     }
@@ -63,8 +63,8 @@ trait ClientTrait {
     /**
      * Archives client
      *
-     * @param integer $id ID of the client
-     * @return stdClass
+     * @param   integer     $id         ID of the client
+     * @return  stdClass
      */
     public function archiveClient(int $id)
     {
@@ -74,10 +74,10 @@ trait ClientTrait {
     /**
      * Restores client and related projects
      *
-     * @param integer $id ID of the client
-     * @return stdClass
+     * @param   integer     $id         ID of the client
+     * @return  stdClass
      */
-    public function restoreClient(int $id, array $data = [])
+    public function restoreClient(int $id, array $data = array())
     {
         return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id, $data );
     }

@@ -6,13 +6,13 @@ use stdClass;
 trait ProjectTrait {
 
     /**
-     * Get projects visible to user
+     * Get workspace projects
      *
      * @return  stdClass
      */
     public function projects()
     {
-        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/me/projects' );
+        return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects' );
     }
 
     /**
@@ -44,7 +44,7 @@ trait ProjectTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function updateProject(int $id, array $data = [])
+    public function updateProject(int $id, array $data = array())
     {
         return $this->sendPutMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/projects/'. $id, $data );
     }
@@ -66,7 +66,7 @@ trait ProjectTrait {
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
-    public function projectUsers(array $data = [])
+    public function projectUsers(array $data = array())
     {
         return $this->sendGetMessage( $this->baseUrl . $this->apiVersionUrl . '/workspaces/'. $this->workspaceId .'/project_users', $data );
     }
