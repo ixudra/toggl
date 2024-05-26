@@ -26,7 +26,7 @@ trait UserTrait {
     }
 
     /**
-     * Get projects visible to user
+     * Get tasks visible to user
      *
      * @return  stdClass
      */
@@ -36,7 +36,7 @@ trait UserTrait {
     }
 
     /**
-     * Get projects visible to user
+     * Get workspaces visible to user
      *
      * @return  stdClass
      */

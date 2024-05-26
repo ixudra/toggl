@@ -2,6 +2,15 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 2.0.0 - 2024-05-26
+### Updated
+- Updated package to support v9 of Toggle URL - v8 is no longer supported
+- Updated README with new documentation
+- `clients()` now collects all projects within a workspace, original implementation can be found in `userClients()`
+- `projects()` now collects all projects within a workspace, original implementation can be found in `userProjects()`
+- `tags()` now collects all projects within a workspace, original implementation can be found in `userTags()`
+- `tasks()` now collects all projects within a workspace, original implementation can be found in `userTasks()`
+
 ## 1.2.0 - 2021-06-25
 ### Updated
 - Added options to `workspaceProjects()` method

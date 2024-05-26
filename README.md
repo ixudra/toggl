@@ -25,6 +25,8 @@ Pull this package in through Composer.
 
 ```
 
+> Important: this package supports the latest version of the Toggle API (v9). If you want so use v8 of the API (soon to be deprecated), pull in version `1.2.0` instead.
+
 
 
 ### Laravel Integration
