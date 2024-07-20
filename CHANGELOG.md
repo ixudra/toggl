@@ -2,6 +2,14 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 2.1.0 - 2024-07-21
+### Added
+- detailedBetween() method for detailed reports between two dates
+
+### Updated
+- v3 support for detailed reports
+- Added offset parameter for detailed reports
+
 ## 2.0.0 - 2024-05-26
 ### Updated
 - Updated package to support v9 of Toggle URL - v8 is no longer supported

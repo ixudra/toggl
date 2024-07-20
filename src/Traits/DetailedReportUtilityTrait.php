@@ -7,10 +7,10 @@ trait DetailedReportUtilityTrait {
 
     public function detailedToday(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->startOfDay()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->endOfDay()
             ->toDateString();
 
@@ -19,11 +19,11 @@ trait DetailedReportUtilityTrait {
 
     public function detailedYesterday(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->subDay()
             ->startOfDay()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->subDay()
             ->endOfDay()
             ->toDateString();
@@ -33,10 +33,10 @@ trait DetailedReportUtilityTrait {
     
     public function detailedThisWeek(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->startOfWeek()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->endOfWeek()
             ->toDateString();
 
@@ -45,11 +45,11 @@ trait DetailedReportUtilityTrait {
 
     public function detailedLastWeek(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->subWeek()
             ->startOfWeek()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->subWeek()
             ->endOfWeek()
             ->toDateString();
@@ -59,10 +59,10 @@ trait DetailedReportUtilityTrait {
 
     public function detailedThisMonth(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->startOfMonth()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->endOfMonth()
             ->toDateString();
 
@@ -71,11 +71,11 @@ trait DetailedReportUtilityTrait {
 
     public function detailedLastMonth(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->subMonth()
             ->startOfMonth()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->subMonth()
             ->endOfMonth()
             ->toDateString();
@@ -85,10 +85,10 @@ trait DetailedReportUtilityTrait {
 
     public function detailedThisYear(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->startOfYear()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->endOfYear()
             ->toDateString();
 
@@ -97,14 +97,25 @@ trait DetailedReportUtilityTrait {
 
     public function detailedLastYear(array $data = array())
     {
-        $data[ 'since' ] = Carbon::now()
+        $data[ 'start_date' ] = Carbon::now()
             ->subYear()
             ->startOfYear()
             ->toDateString();
-        $data[ 'until' ] = Carbon::now()
+        $data[ 'end_date' ] = Carbon::now()
             ->subYear()
             ->endOfYear()
             ->toDateString();
+
+        return $this->detailed( $data );
+    }
+
+    public function detailedBetween(Carbon $from, Carbon $to, $offset = 0, array $data = array())
+    {
+        $data[ 'start_date' ] = $from
+            ->toDateString();
+        $data[ 'end_date' ] = $to
+            ->toDateString();
+        $data[ 'first_row_number' ] = $offset;
 
         return $this->detailed( $data );
     }

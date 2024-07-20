@@ -33,7 +33,7 @@ trait ReportTrait {
      */
     public function detailed(array $data = array())
     {
-        return $this->sendGetMessage( $this->baseUrl .'/reports/api/v2/details', $data );
+        return $this->sendPostMessage( $this->baseUrl .'/reports/api/v3/workspace/'. $this->workspaceId . '/search/time_entries', $data );
     }
 
     /**

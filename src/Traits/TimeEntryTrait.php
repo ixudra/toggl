@@ -18,8 +18,8 @@ trait TimeEntryTrait {
         $requestData = array();
         if( !empty($startDate) || !empty($endDate) ) {
             $requestData = [
-                'start_date'    => $startDate->toIso8601ZuluString(),
-                'end_date'      => $endDate->toIso8601ZuluString(),
+                'start_date'    => $startDate->toDateString(),
+                'end_date'      => $endDate->toDateString(),
             ];
         }
 
