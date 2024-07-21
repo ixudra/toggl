@@ -109,7 +109,7 @@ trait DetailedReportUtilityTrait {
         return $this->detailed( $data );
     }
 
-    public function detailedBetween(Carbon $from, Carbon $to, $offset = 0, array $data = array())
+    public function detailedBetween(Carbon $from, Carbon $to, $offset = 1, array $data = array())
     {
         $data[ 'start_date' ] = $from
             ->toDateString();

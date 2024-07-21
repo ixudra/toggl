@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 2.1.1 - 2024-07-21
+### Fixed
+- Incorrect default offset for detailed reports
+
 ## 2.1.0 - 2024-07-21
 ### Added
 - detailedBetween() method for detailed reports between two dates
