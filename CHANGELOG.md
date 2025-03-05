@@ -2,6 +2,10 @@
 
 All Notable changes to `ixudra/toggl` will be documented in this file
 
+## 2.1.2 - 2025-03-05
+### Fixed
+- Fixed incorrect URLs in `archiveClient()` and `restoreClient()` methods
+
 ## 2.1.1 - 2024-07-21
 ### Fixed
 - Incorrect default offset for detailed reports

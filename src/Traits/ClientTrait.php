@@ -68,7 +68,7 @@ trait ClientTrait {
      */
     public function archiveClient(int $id)
     {
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id .'/archive' );
     }
 
     /**
@@ -79,6 +79,6 @@ trait ClientTrait {
      */
     public function restoreClient(int $id, array $data = array())
     {
-        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id, $data );
+        return $this->sendPostMessage( $this->baseUrl . $this->apiVersionUrl .'/workspaces/'. $this->workspaceId .'/clients/'. $id .'/restore', $data );
     }
 }
