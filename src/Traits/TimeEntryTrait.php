@@ -9,11 +9,11 @@ trait TimeEntryTrait {
     /**
      * Get time entries started in a specific time range
      *
-     * @param   Carbon      $startDate  Start of date range
-     * @param   Carbon      $endDate    End of date range
+     * @param   Carbon|null      $startDate  Start of date range
+     * @param   Carbon|null      $endDate    End of date range
      * @return  stdClass
      */
-    public function timeEntries(Carbon $startDate = null, Carbon $endDate = null)
+    public function timeEntries(?Carbon $startDate, ?Carbon $endDate)
     {
         $requestData = array();
         if( !empty($startDate) || !empty($endDate) ) {
