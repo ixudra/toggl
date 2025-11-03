@@ -40,7 +40,7 @@ trait TimeEntryTrait {
     /**
      * Stop a time entry
      *
-     * @param   integer     $id         ID of the time entry
+     * @param   int         $id         ID of the time entry
      * @return  stdClass
      */
     public function stopTimeEntry(int $id)
@@ -51,7 +51,7 @@ trait TimeEntryTrait {
     /**
      * Summary report returns the aggregated time entries data
      *
-     * @param   integer     $id         ID of the time entry
+     * @param   int         $id         ID of the time entry
      * @return  stdClass
      */
     public function timeEntry(int $id)
@@ -72,7 +72,7 @@ trait TimeEntryTrait {
     /**
      * Update a time entry
      *
-     * @param   integer     $id         ID of the time entry
+     * @param   int         $id         ID of the time entry
      * @param   array       $data       Data payload that is to be sent with the request
      * @return  stdClass
      */
@@ -84,7 +84,7 @@ trait TimeEntryTrait {
     /**
      * Delete a time entry
      *
-     * @param   integer     $id         ID of the time entry
+     * @param   int         $id         ID of the time entry
      * @return  stdClass
      */
     public function deleteTimeEntry(int $id)
