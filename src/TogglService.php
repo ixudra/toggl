@@ -152,7 +152,7 @@ class TogglService {
     protected function processMessageResponse($messageResponseObject)
     {
         if( $messageResponseObject->status === 402 ) {
-            throw new ApiQuotaReachedException( $messageResponseObject->content );
+            throw new ApiQuotaReachedException( $messageResponseObject->error );
         }
 
         if( $messageResponseObject->status !== 200 ) {
