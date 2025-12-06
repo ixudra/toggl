@@ -3,7 +3,9 @@
 
 use Ixudra\Curl\Builder;
 use Ixudra\Curl\CurlService;
+use Ixudra\Toggl\Exceptions\ApiQuotaReachedException;
 use Ixudra\Toggl\Exceptions\InvalidConfigurationException;
+use Ixudra\Toggl\Exceptions\TogglApiException;
 use Ixudra\Toggl\Traits\ClientTrait;
 use Ixudra\Toggl\Traits\DetailedReportUtilityTrait;
 use Ixudra\Toggl\Traits\GroupTrait;
@@ -67,8 +69,7 @@ class TogglService {
      */
     protected function sendGetMessage(string $url, array $data = array())
     {
-        return $this->prepareMessage( $url, $data )
-            ->get();
+        return $this->processMessageResponse( $this->prepareMessage( $url, $data )->get() );
     }
 
     /**
@@ -80,8 +81,7 @@ class TogglService {
      */
     protected function sendPostMessage(string $url, array $data = array())
     {
-        return $this->prepareMessage( $url, $data )
-            ->post();
+        return $this->processMessageResponse( $this->prepareMessage( $url, $data )->post() );
     }
 
     /**
@@ -93,8 +93,7 @@ class TogglService {
      */
     protected function sendPutMessage(string $url, array $data = array())
     {
-        return $this->prepareMessage( $url, $data )
-            ->put();
+        return $this->processMessageResponse( $this->prepareMessage( $url, $data )->put() );
     }
 
     /**
@@ -107,8 +106,7 @@ class TogglService {
      */
     protected function sendPatchMessage(string $url, array $data = array())
     {
-        return $this->prepareMessage( $url, $data )
-            ->patch();
+        return $this->processMessageResponse( $this->prepareMessage( $url, $data )->patch() );
     }
 
     /**
@@ -119,8 +117,7 @@ class TogglService {
      */
     protected function sendDeleteMessage(string $url)
     {
-        return $this->prepareMessage( $url )
-            ->delete();
+        return $this->processMessageResponse( $this->prepareMessage( $url )->delete() );
     }
 
     /**
@@ -147,7 +144,22 @@ class TogglService {
             ->to( $url )
             ->withOption('USERPWD', $this->apiToken .':api_token')
             ->withData( $data )
+            ->withResponseHeaders()
+            ->returnResponseObject()
             ->asJson();
+    }
+
+    protected function processMessageResponse($messageResponseObject)
+    {
+        if( $messageResponseObject->status === 402 ) {
+            throw new ApiQuotaReachedException( $messageResponseObject->content );
+        }
+
+        if( $messageResponseObject->status !== 200 ) {
+            throw new TogglApiException( $messageResponseObject->content );
+        }
+
+        return $messageResponseObject->content;
     }
 
     /**
